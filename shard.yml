@@ -11,8 +11,9 @@ targets:
 crystal: 0.23.0
 
 dependencies:
-  kemal:
-    github: kemalcr/kemal
-    branch: master
+  pg:
+    github: will/crystal-pg
+  micrate:
+    github: juanedi/micrate
 
 license: MIT
