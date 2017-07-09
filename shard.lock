@@ -1,5 +1,9 @@
 version: 1.0
 shards:
+  awscr-signer:
+    github: taylorfinnell/awscr-signer
+    version: 0.3.1
+
   db:
     github: crystal-lang/crystal-db
     version: 0.4.2

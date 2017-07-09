@@ -11,10 +11,7 @@ class Client
   end
 
   def tweets
-    tweets = get("/1.1/statuses/user_timeline.json?screen_name=wiraufweltreise")
-    tweets.each do |tweet_data|
-      Entry.new(tweet_data["id"])
-    end
+    response = get("/1.1/statuses/user_timeline.json?screen_name=wiraufweltreise")
   end
 
   private def get(path : String, params = {} of String => String)

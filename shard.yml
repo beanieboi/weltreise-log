@@ -15,5 +15,7 @@ dependencies:
     github: will/crystal-pg
   micrate:
     github: juanedi/micrate
+  awscr-signer:
+    github: taylorfinnell/awscr-signer
 
 license: MIT
