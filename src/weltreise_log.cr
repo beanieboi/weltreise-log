@@ -23,9 +23,12 @@ tweets = client.tweets
 entries = converter.from_tweets(tweets)
 
 entries.each do |entry|
-  if !entry.exists_in_database?
+  if entry.exists_in_database?
+    p "Skipped #{entry.id}"
+  else
     entry.save!
+    p "Saved #{entry.id}"
   end
 end
 
-uploader.upload!("weltreise-new.json", IO::Memory.new(Entry.all.to_json))
+uploader.upload!("weltreise-log.json", IO::Memory.new(Entry.all.to_json))
