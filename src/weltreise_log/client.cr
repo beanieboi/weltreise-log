@@ -11,7 +11,7 @@ class Client
   end
 
   def tweets
-    response = get("/1.1/statuses/user_timeline.json?screen_name=wiraufweltreise")
+    response = get("/1.1/statuses/user_timeline.json?screen_name=wiraufweltreise&tweet_mode=extended")
   end
 
   private def get(path : String, params = {} of String => String)
