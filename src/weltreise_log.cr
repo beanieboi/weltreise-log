@@ -32,3 +32,6 @@ entries.each do |entry|
 end
 
 uploader.upload!("weltreise-log.json", IO::Memory.new(Entry.all.to_json))
+
+polarsteps = Polarsteps.new
+uploader.upload!("polarsteps.json", IO::Memory.new(polarsteps.steps))
