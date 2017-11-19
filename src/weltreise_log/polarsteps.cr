@@ -7,6 +7,19 @@ class Polarsteps
 
   def steps
     response = get("/api/trips/186610")
+
+    steps = [] of Polarstep
+    json = JSON.parse(response)
+
+    json["all_steps"].each do |polarstep_json|
+      polarstep = Polarstep.new(
+        polarstep_json["location"]["lat"].as_f,
+        polarstep_json["location"]["lon"].as_f
+      )
+      steps << polarstep
+    end
+
+    steps
   end
 
   private def get(path : String, params = {} of String => String)
