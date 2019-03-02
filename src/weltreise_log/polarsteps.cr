@@ -11,7 +11,7 @@ class Polarsteps
     steps = [] of Polarstep
     json = JSON.parse(response)
 
-    json["all_steps"].each do |polarstep_json|
+    json["all_steps"].as_a.each do |polarstep_json|
       polarstep = Polarstep.new(
         polarstep_json["location"]["lat"].as_f,
         polarstep_json["location"]["lon"].as_f

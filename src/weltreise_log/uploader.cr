@@ -1,6 +1,4 @@
-require "secure_random"
-require "tempfile"
-require "awscr-signer"
+require "awscr-s3"
 
 KEY    = ENV["AWS_ACCESS_KEY_ID"]
 SECRET = ENV["AWS_SECRET_ACCESS_KEY"]
@@ -22,13 +20,9 @@ class Uploader
     end
   end
 
-  private def credentials
-    Awscr::Signer::Credentials.new(KEY, SECRET)
-  end
-
   private def form(key)
-    Awscr::Signer::Presigned::Form.build(@region, credentials) do |form|
-      form.expiration(Time.epoch(Time.now.epoch + 1000))
+    Awscr::S3::Presigned::Form.build(@region, KEY, SECRET) do |form|
+      form.expiration(Time.unix(Time.now.to_unix + 1000))
       form.condition("bucket", @bucket)
       form.condition("acl", "public-read")
       form.condition("key", key)

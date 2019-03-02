@@ -3,14 +3,14 @@ class EntryFromTweet
     entries = [] of Entry
     json = JSON.parse(tweets)
 
-    json.each do |entry_json|
+    json.as_a.each do |entry_json|
       entry = Entry.new(
         entry_json["id"].as_i64,
         parse_coordinates(entry_json["geo"]?)[0],
         parse_coordinates(entry_json["geo"]?)[1],
         entry_json["full_text"].as_s.gsub(/https:\/\/t\.co.\w{10}$/, ""),
         parse_image(entry_json["entities"]?),
-        created_at: Time.parse(entry_json["created_at"].as_s, "%a %b %d %T %z %Y")
+        created_at: Time.parse(entry_json["created_at"].as_s, "%a %b %d %T %z %Y", Time::Location::UTC)
       )
       entries << entry
     end

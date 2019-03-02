@@ -8,14 +8,14 @@ targets:
   com.abwesend.weltreise.log:
     main: src/com.abwesend.weltreise.log.cr
 
-crystal: 0.23.0
+crystal: 0.27.2
 
 dependencies:
   pg:
     github: will/crystal-pg
   micrate:
     github: juanedi/micrate
-  awscr-signer:
-    github: taylorfinnell/awscr-signer
+  awscr-s3:
+    github: taylorfinnell/awscr-s3
 
 license: MIT

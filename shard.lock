@@ -1,18 +1,22 @@
 version: 1.0
 shards:
+  awscr-s3:
+    github: taylorfinnell/awscr-s3
+    version: 0.3.4
+
   awscr-signer:
     github: taylorfinnell/awscr-signer
-    version: 0.3.1
+    version: 0.5.3
 
   db:
     github: crystal-lang/crystal-db
-    version: 0.4.2
+    version: 0.5.1
 
   micrate:
     github: juanedi/micrate
-    version: 0.3.0
+    version: 0.3.3
 
   pg:
     github: will/crystal-pg
-    version: 0.13.3
+    version: 0.15.0
 
